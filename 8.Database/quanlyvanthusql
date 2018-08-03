@@ -1,0 +1,241 @@
+-- MySQL dump 10.13  Distrib 5.7.20, for Linux (x86_64)
+--
+-- Host: 127.0.0.1    Database: QuanLyVanThu
+-- ------------------------------------------------------
+-- Server version	5.7.20-0ubuntu0.17.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `Congvanden`
+--
+
+DROP TABLE IF EXISTS `Congvanden`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Congvanden` (
+  `idThuoctinhcongvan` int(11) NOT NULL AUTO_INCREMENT,
+  `Sohieu` varchar(90) NOT NULL,
+  `Coquansoanthaobanhanh` int(11) DEFAULT NULL,
+  `Trichdan` varchar(15000) DEFAULT NULL,
+  `Ngaybanhanh` date DEFAULT NULL,
+  `Ngayapdung` datetime DEFAULT NULL,
+  `Nguoiky` varchar(145) DEFAULT NULL,
+  `Nguoixuly` varchar(45) DEFAULT NULL,
+  `Ngayhethieuluc` datetime DEFAULT NULL,
+  `Tinhtranghieuluc` int(11) DEFAULT NULL,
+  `Duongtai` varchar(200) DEFAULT NULL,
+  `Thoigiancongvanden` datetime DEFAULT NULL,
+  PRIMARY KEY (`idThuoctinhcongvan`)
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Congvanden`
+--
+
+LOCK TABLES `Congvanden` WRITE;
+/*!40000 ALTER TABLE `Congvanden` DISABLE KEYS */;
+INSERT INTO `Congvanden` VALUES (7,'17_2016_TTLT-BGDDT-BTTTT',2,'JOINT CIRCULAR \r\nRegulation organize examinations and \r\ncertification of information technology applications\r\n\r\nPursuant to the Education Law dated 14 June 2005; Law amending and supplementing a number of articles of the Education Law dated November 25, 2009;\r\n\r\nPursuant to the Law on Information Technology dated 29 June 2006;\r\n\r\nPursuant to the Government\'s Decree No. 75/2006 / ND-CP of August 2, 2006, detailing and guiding the implementation of a number of articles of the Education Law; Decree No. 31/2011 / ND-CP dated May 11, 2011 of the Government amending and supplementing a number of articles of the Government\'s Decree No. 75/2006 / ND-CP of August 2, 2006 detailing and guiding the implementation of a number of articles of the Education Law; Decree No. 07/2013 / ND-CP dated 9 January 2013 of the Government amending Point b, Clause 13, Article 1 of the Government\'s Decree No. 31/2011 / ND-CP dated 11 May 2011 amending and supplementing a number of articles of the Government\'s Decree No. 75/2006 / ND-CP of August 2, 2006, detailing and guiding the implementation of a number of articles of the Education Law;\r\n\r\nPursuant to the Government\'s Decree No. 32/2008 / ND-CP of March 19, 2008, defining the functions, tasks, powers and organizational structure of the Ministry of Education and Training;\r\n\r\nPursuant to the Government\'s Decree No. 132/2013 / ND-CP of October 16, 2013, defining the functions, tasks, powers and organizational structure of the Ministry of Information and Communications;\r\n\r\nSecretary Ministry of Education and Training and the Minister of Information and Communication issued a joint circular specified operating organization and the certification exam to use information technology.','2018-07-02',NULL,'Nguyen Thanh Hung',NULL,'2018-09-02 00:00:00',1,'File/17_2016_TTLT-BGDDT-BTTTT.pdf','2018-07-21 15:21:59'),(10,'BL&#272;TBXH-BCA',2,'Pursuant to the Government\'s Decree No. 32/2008 / ND-CP dated March 19, 2008, defining the functions, tasks, powers and organizational structure of the Ministry of Education and Training;\r\n\r\nPursuant to the Government\'s Decree No. 76/2013 / ND-CP of June 17, 2013, defining the functions, tasks, powers and organizational structure of the Ministry of Culture, Sports and Tourism;\r\n\r\nPursuant to the Government\'s Decree No. 106/2012 / ND-CP of December 20, 2012, defining the functions, tasks, powers and organizational structure of the Ministry of Labor, War Invalids and Social Affairs;\r\n\r\nPursuant to the Government\'s Decree No. 106/2014 / ND-CP of November 17, 2014, defining the functions, tasks, powers and organizational structure of the Ministry of Public Security;\r\n\r\nPursuant to the Government\'s Decree No. 02/2013 / ND-CP of January 3, 2013, providing for the work of families;\r\n\r\nPursuant to the Prime Minister\'s Decision No. 2170 / QD-TTg of November 11, 2013 approving the scheme on behavior change education for family construction and domestic violence prevention and control up to 2020 ;\r\n\r\nThe Minister of Education and Training, the Minister of Culture, Sports and Tourism, the Minister of Labor, War Invalids and Social Affairs and the Minister of Public Security shall issue a joint circular guiding the implementation of education. Conducting family-based behavior change and domestic violence prevention in educational establishments in the national education system','2018-07-02',NULL,'Nguyen Thanh Hung',NULL,'2018-09-02 00:00:00',1,'File/BL&#272;TBXH-BCA.pdf','2018-07-21 15:52:04'),(11,'TTLT-BGDDT-BTC-BLDTBXH',2,'  1. Scope of regulation     \r\n\r\n          This Circular prescribes the management of finance, accounting, auditing and taxation for educational establishments participating in training cooperation with foreign countries and foreign-invested educational establishments in cooperation and investment. in the field of education, training and vocational training.\r\n\r\n          2. Subjects of application\r\n\r\n          This Circular applies to pre-school education establishments, general education, vocational education, higher education and continuing education (hereinafter referred collectively to as educational establishments) and international organizations They are allowed to cooperate and invest in the field of education, training and job-training and concerned organizations and individuals.\r\n\r\n           Article 2. Accounting\r\n\r\n          Educational establishments permitted to engage in training cooperation with foreign countries and foreign-invested educational establishments shall have to conduct the accounting work according to the provisions of the Accounting Law and current guiding documents; Applying the accounting regime promulgated by the Ministry of Finance in line with the operation model of each establishment.\r\n\r\n','2018-07-02',NULL,'Nguyen Thanh Hung',NULL,'2018-09-02 00:00:00',1,'File/TTLT-BGDDT-BTC-BLDTBXH.pdf','2018-07-21 15:52:04'),(13,'20_2016_TTLT-BGDDT-BQP',2,'1. Funds for dissemination of the law on military service shall be used from the annual budget, deducted from the fund for educational propagation and dissemination activities of educational establishments according to regulations.\r\n\r\n2. Funds for training of technical and professional staffs shall comply with the Prime Minister\'s decisions on assignment of training tasks and other sources prescribed by law.\r\n\r\nArticle 7.- Organization of implementation\r\n\r\n1. The Ministry of Education and Training and the Ministry of Labor, War Invalids and Social Affairs shall direct education establishments to perform the task of propagating, popularizing and educating the legislation on annual military service, organizing the training To create technical and professional personnel for the army according to the decisions of the Prime Minister and the Defense Ministry\'s plans; To coordinate with the Ministry of Defense in guiding and inspecting educational establishments in organizing the implementation of this Joint Circular according to regulations.\r\n\r\n2. The Ministry of Defense shall direct the functional agencies to guide the army units and the provincial / municipal Military Command in working out plans for coordinating with the law education and propagation and education establishments the annual military service; To formulate programs and plans for organizing professional and technical staff training in educational establishments and estimate funding for reports and insurance according to regulations.\r\n\r\nThe military zone, military service, army and the military command of the provinces and cities directly under the Central Government to monitor, direct the district Military Command, the units under close coordination with the Education institutions in their respective localities shall organize the implementation of the provisions of this Joint Circular.\r\n\r\n3. Heads of educational institutions defined in Clause 2, Article 1 of this Joint Circular shall have to elaborate the contents, programs and plans on propagation and education of law on military service. The To elaborate the contents, programs and plans for organizing the training of technical and professional staff in educational establishments according to the contents, time and requirements prescribed in this Joint Circular.\r\n\r\n4. Military units assigned by the Ministry of Defense, district-level Military Commands to coordinate with educational establishments based in their respective localities in elaborating contents, programs and plans; Organizing the propagation and dissemination of law education on military service ','2017-06-06',NULL,'Bui Van Ga',NULL,'2018-09-02 00:00:00',1,'File/20_2016_TTLT-BGDDT-BQP.docx','2018-07-22 14:32:58'),(23,'14/2015 / TTLT-BGDDT-BTC-BLDTBXH',3,'Pursuant to the Government\'s Decree No. 32/2008 / ND-CP dated March 19, 2008, defining the functions, tasks, powers and organizational structure of the Ministry of Education and Training;\r\n\r\nPursuant to the Government\'s Decree No. 215/2013 / ND-CP dated December 23, 2013 defining the functions, tasks, powers and organizational structure of the Ministry of Finance;\r\n\r\nPursuant to the Government\'s Decree No. 106/2012 / ND-CP of December 20, 2012, defining the functions, tasks, powers and organizational structure of the Ministry of Labor, War Invalids and Social Affairs;\r\n\r\nThe Minister of Education and Training, the Minister of Finance and the Minister of Labor, War Invalids and Social Affairs shall issue a joint circular amending and supplementing a number of articles of Joint Circular No. 20/2014 / TTLT-BGDDT-BTC-BLDTBXH guiding the implementation of some articles of Decree No. 49/2010 / ND-CP dated May 14, 2010 of the Government on tuition fee exemption, reduction of tuition fees and the mechanism for the collection and use of tuition fees for educational institutions in the national education system from the academic year 2010-2011 to the academic year 2014-2015 and Decree No.74 / 2013 / ND-CP dated July 15, 2013 of the Government amending and supplementing a number of articles of Decree No. 49/2010 / ND-CP (hereinafter referred to as Joint Circular No. 20).','2018-07-01',NULL,'Phung Dinh Phan',NULL,'2018-09-02 00:00:00',1,'File/14_2015 _ TTLT-BGDDT-BTC-BLDTBXH.pdf','2018-07-23 15:47:04'),(24,'138/2013/N&#272;-CP',2,'DECREE\n\nPROVISIONS ON SANCTIONING ADMINISTRATIVE VIOLATIONS IN THE FIELD OF EDUCATION\n\nPursuant to the Law on Organization of  the Government dated December 25, 2001;\n\nPursuant to the Law on the Handling of  Violent Crimes as of June 20, 2012;\n\nPursuant to the Education Law dated 14 December 2005 and the Law on the amendment,  supplement of several  articles of the Law on Education dated 25th November 2009;\n\nPursuant to the Law on Higher  Education dated 18 June 201 2;\n\nAt the proposal of the Minister of Education and Training;\n\nThe Government issued a decree stipulating penalties for violations in the fields of education,\n\nChapter 1.\n\nGENERAL RULES\n\nArticle 1. Scope\n\nThis Decree prescribes acts of violation, sanctioning forms, sanctioning levels, remedies, sanctioning competence and competence to make records on acts of administrative violation in education. .\n\nArticle 2. Subjects of application\n\n1. Vietnamese organizations and individuals; Foreign organizations and individuals committing administrative violations in the field of education on the Vietnamese territory.\n\n2. Persons competent to make records on sanctioning of administrative violations and other concerned individuals and organizations.\n\nArticle 3. Level of fine\n\n1. The maximum fine level applicable to individuals is VND 50 million, with the organization being VND 100 million.\n\n2. The fine levels prescribed in Chapter II of this Decree are the fine levels applicable to organizations, except for the fine levels prescribed in Clause 5 of Article 9; Clauses 1 and 2 of Article 11; Clause 1 and Points a, b, c, d and e, Clause 3 of Article 13; Clauses 2 and 3 of Article 16; Clause 1, Article 20 and Clause 1, Article 22 of this Decree are fine levels for individuals.\n\nIn the same offense, the fine level for individuals is equal to one half of the fine level for the organization.\n\nArticle 4. Remedies\n\nRemedies include:\n\n1. To force the dissolution of educational establishments, organizations of educational institutions or quality-expertising organizations set up ultra vires.\n\n2. Forcible cancellation of documents promulgated ultra vires or with contents contrary to law.\n\n3. Forced destruction of books, teaching materials, lectures, teaching materials and equipment with improper contents, distorting or inciting violence, affecting the fine traditions and customs of the nation.\n\n4. Forcible restoration of the initial state altered due to the act of writing more, correcting test contents, transcripts, grades, grades or papers related to the evaluation of study results and forging training of learners.\n\n5. Forcible assurance of the candidates\' interests for the act of losing the examination papers.\n\n6. Forcible refund of the already collected money amount and bear all expenses for organizing the return; In case of irrecoverable amounts, the sums of money due to the violation shall be remitted to the State budget.\n\n7. Forced reduction of the number of students enrolled in the following year by the number of over-qualified students; Forced transfer of trainees to places where educational activities have been licensed;\n\n8. Forcible supplementation of subjects or educational contents which are lacking according to prescribed educational programs.\n\n9. Forcible supplementation of full conditions on the contingent of teachers, material foundations and teaching equipment so as to ensure the quality of education or ensure the safety of material facilities of schools and classrooms.\n\n10. Forcible cancellation of exam results, results of course evaluation, results of thesis or thesis defense in contravention of regulations; reviewing the test, re-evaluating the results of the course, organizing the defense of thesis and thesis.\n\n11. Forcible cancellation of blank diplomas with printed certificates not in accordance with the prescribed contents.\n\n12. Forced transfer of eligible trainees who have enrolled in admission to another educational institution or cancel the admission decision and return the already paid funds to the trainees if they fail to transfer them to the re-education establishments they have recruited. To be dissolved, to be deprived of the permit, to be suspended from educational activities.','2018-06-06',NULL,'Pham Ngoc Dau',NULL,'2018-09-02 00:00:00',1,'File/138_2013_N&#272;-CP.pdf','2018-07-24 21:30:07'),(28,'27/2015/N&#272;-CP',2,'GOVERMENT\r\n\r\nPursuant to the Law on Organization of the Government of December 25, 2001;\r\n\r\nPursuant to the Law on Fire Prevention and Fighting of June 29, 2001;\r\n\r\nAt the proposal of the Minister of Public Security,\r\n\r\nChapter I\r\n\r\nGENERAL PROVISIONS\r\n\r\nArticle 1. Scope\r\n\r\nThis Decree details the implementation of a number of articles of the Law on Fire Prevention and Fighting regarding fire prevention and fighting, the organization of fire prevention and fighting forces, fire prevention and fighting means and investment in defense activities. fire and fire fighting and the responsibilities of the People\'s Committees of all levels, the ministries, the ministerial-level agencies and the agencies attached to the Government in fire prevention and fighting activities.\r\n\r\nArticle 2. Subjects of application\r\n\r\nAgencies, organizations, households and individuals operating and living in the territory of the Socialist Republic of Vietnam must comply with the provisions of the Law on Fire Prevention and Fighting and the provisions of this Decree. The In cases where the international treaties which the Socialist Republic of Vietnam has signed or acceded to contain different provisions, the provisions of such international treaties shall apply.\r\n\r\n','2018-07-04',NULL,'Nguyen Tan Dung',NULL,'2018-09-02 00:00:00',1,'File/27_2015_ND-CP_Xettangdanhhieu_NgiaoNdan_NgiaoUutu.doc','2018-07-24 22:11:23'),(31,'29/2017/TT-BGD&#272;T',2,'To meet the demand for organizing the promotion of the professional titles of public and private preschool teachers according to the provisions of the Civil Servant Law and Decree No. 29/2012 / ND-CP dated April 12, 2012 of the Government. The Ministry of Education and Training promulgated the Regulation promulgating the Regulation on promotion of the professional titles of preschool and public school teachers.\r\n\r\nThe promulgation of the above-mentioned Circular is aimed at assisting localities (People\'s Committees at all levels and related departments), educational management agencies and educational institutions with bases and regulations. Law to organize promotions for kindergarten teachers, high school graduates in each grade.\r\n\r\n','2018-01-04',NULL,'Nguyen Thi Nghia',NULL,NULL,NULL,'File/TT 29.2018.pdf','2018-07-27 21:14:08'),(32,'ABC-2018',1,'abcd','2018-07-27',NULL,'Nguyen Trung Doan',NULL,NULL,NULL,'File/TT27.2017-TPT.pdf','2018-07-27 21:19:55');
+/*!40000 ALTER TABLE `Congvanden` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Coquanbanhanhcongvan`
+--
+
+DROP TABLE IF EXISTS `Coquanbanhanhcongvan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Coquanbanhanhcongvan` (
+  `idCoquanbanhanh` int(11) NOT NULL AUTO_INCREMENT,
+  `TenCoQuan` varchar(145) NOT NULL,
+  `DiaChi` varchar(145) DEFAULT NULL,
+  `Sodienthoai` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idCoquanbanhanh`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Coquanbanhanhcongvan`
+--
+
+LOCK TABLES `Coquanbanhanhcongvan` WRITE;
+/*!40000 ALTER TABLE `Coquanbanhanhcongvan` DISABLE KEYS */;
+INSERT INTO `Coquanbanhanhcongvan` VALUES (1,'Bach Khoa University','HoChiMinh',12345678),(2,'Posts and Telecommunication Instui Techonoly','BinhThanh Distric HoChiMinh City',1234567910),(3,'Hong Bang University','175 Hai Ba Trung, Binh Thanh, HoChiMinh City',90809029),(4,'TonDucThang University','Distric 7, HoChiMinh City',93890840),(5,'PhanDinhPhung University','Distric 7, HoChiMinh City',82189719);
+/*!40000 ALTER TABLE `Coquanbanhanhcongvan` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Loainguoidung`
+--
+
+DROP TABLE IF EXISTS `Loainguoidung`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Loainguoidung` (
+  `idLoainguoidung` int(11) NOT NULL,
+  `Tenloai` varchar(145) NOT NULL,
+  PRIMARY KEY (`idLoainguoidung`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Loainguoidung`
+--
+
+LOCK TABLES `Loainguoidung` WRITE;
+/*!40000 ALTER TABLE `Loainguoidung` DISABLE KEYS */;
+INSERT INTO `Loainguoidung` VALUES (1,'Admin'),(2,'Writer'),(3,'Leader'),(4,'Manager'),(5,'Personal');
+/*!40000 ALTER TABLE `Loainguoidung` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Nguoidung`
+--
+
+DROP TABLE IF EXISTS `Nguoidung`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Nguoidung` (
+  `idNguoidung` int(11) NOT NULL AUTO_INCREMENT,
+  `TenDangNhap` varchar(145) NOT NULL,
+  `Matkhau` varchar(145) NOT NULL,
+  `Loainguoidung` int(11) NOT NULL,
+  PRIMARY KEY (`idNguoidung`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Nguoidung`
+--
+
+LOCK TABLES `Nguoidung` WRITE;
+/*!40000 ALTER TABLE `Nguoidung` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Nguoidung` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Noinhan`
+--
+
+DROP TABLE IF EXISTS `Noinhan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Noinhan` (
+  `idNoinhan` int(11) NOT NULL,
+  `Tennoinhan` varchar(145) DEFAULT NULL,
+  PRIMARY KEY (`idNoinhan`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Noinhan`
+--
+
+LOCK TABLES `Noinhan` WRITE;
+/*!40000 ALTER TABLE `Noinhan` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Noinhan` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Phongbandangky`
+--
+
+DROP TABLE IF EXISTS `Phongbandangky`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Phongbandangky` (
+  `idcoquan` int(11) NOT NULL AUTO_INCREMENT,
+  `Tencoquan` varchar(145) NOT NULL,
+  `Diachicoquan` varchar(145) DEFAULT NULL,
+  `Sodienthoai` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idcoquan`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Phongbandangky`
+--
+
+LOCK TABLES `Phongbandangky` WRITE;
+/*!40000 ALTER TABLE `Phongbandangky` DISABLE KEYS */;
+INSERT INTO `Phongbandangky` VALUES (1,'SaiGonLeader','93,Manthien Street, Distric 9, HoChiMinh City',1663638983);
+/*!40000 ALTER TABLE `Phongbandangky` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Thongtincanhan`
+--
+
+DROP TABLE IF EXISTS `Thongtincanhan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Thongtincanhan` (
+  `idThongtincanhan` int(11) NOT NULL AUTO_INCREMENT,
+  `Hoten` varchar(145) NOT NULL,
+  `Diachi` varchar(145) DEFAULT NULL,
+  `Ngaysinh` varchar(145) DEFAULT NULL,
+  `Gioitinh` int(11) DEFAULT NULL,
+  `Coquancongtac` int(11) DEFAULT NULL,
+  `Email` varchar(145) NOT NULL,
+  `Password` varchar(145) NOT NULL,
+  `Sodienthoai` int(11) DEFAULT NULL,
+  `Phanquyen` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idThongtincanhan`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Thongtincanhan`
+--
+
+LOCK TABLES `Thongtincanhan` WRITE;
+/*!40000 ALTER TABLE `Thongtincanhan` DISABLE KEYS */;
+INSERT INTO `Thongtincanhan` VALUES (1,'Nguyen Doan','Thai Binh','1996-24-02',1,1,'nguyentrungdoan79@gmail.com','202cb962ac59075b964b07152d234b70',12345678,2),(2,'Nguyen Nhat Trung',NULL,NULL,NULL,1,'nguyennhatrung@gmail.com','202cb962ac59075b964b07152d234b70',NULL,5),(3,'Hai Hai',NULL,NULL,NULL,1,'haihai@gmail.com','202cb962ac59075b964b07152d234b70',NULL,4);
+/*!40000 ALTER TABLE `Thongtincanhan` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Trangthaixuly`
+--
+
+DROP TABLE IF EXISTS `Trangthaixuly`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Trangthaixuly` (
+  `idTrangthaixuly` int(11) NOT NULL,
+  `Tentrangthai` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`idTrangthaixuly`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Trangthaixuly`
+--
+
+LOCK TABLES `Trangthaixuly` WRITE;
+/*!40000 ALTER TABLE `Trangthaixuly` DISABLE KEYS */;
+INSERT INTO `Trangthaixuly` VALUES (1,'Still validated'),(2,'Unvalidated'),(3,'Processing'),(4,'Overdue processing');
+/*!40000 ALTER TABLE `Trangthaixuly` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2018-07-28 12:04:24

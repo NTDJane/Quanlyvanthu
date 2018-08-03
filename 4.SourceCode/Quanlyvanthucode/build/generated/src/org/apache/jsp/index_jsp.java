@@ -1,0 +1,517 @@
+package org.apache.jsp;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.jsp.*;
+import Database_Helpers.Nguoidungquerry;
+import Model.Nguoidung;
+import Model.Nguoidung;
+
+public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
+    implements org.apache.jasper.runtime.JspSourceDependent {
+
+  private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
+
+  private static java.util.List<String> _jspx_dependants;
+
+  static {
+    _jspx_dependants = new java.util.ArrayList<String>(4);
+    _jspx_dependants.add("/Login.jsp");
+    _jspx_dependants.add("/head.jsp");
+    _jspx_dependants.add("/Menuchinh.jsp");
+    _jspx_dependants.add("/footer.jsp");
+  }
+
+  private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
+
+  public java.util.List<String> getDependants() {
+    return _jspx_dependants;
+  }
+
+  public void _jspService(HttpServletRequest request, HttpServletResponse response)
+        throws java.io.IOException, ServletException {
+
+    PageContext pageContext = null;
+    HttpSession session = null;
+    ServletContext application = null;
+    ServletConfig config = null;
+    JspWriter out = null;
+    Object page = this;
+    JspWriter _jspx_out = null;
+    PageContext _jspx_page_context = null;
+
+    try {
+      response.setContentType("text/html");
+      pageContext = _jspxFactory.getPageContext(this, request, response,
+      			null, true, 8192, true);
+      _jspx_page_context = pageContext;
+      application = pageContext.getServletContext();
+      config = pageContext.getServletConfig();
+      session = pageContext.getSession();
+      out = pageContext.getOut();
+      _jspx_out = out;
+      _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
+
+      out.write("<link href=\"include/css/bootstrap.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
+      out.write("\n");
+      out.write("<script src=\"include/JavaScript/jquery-1.11.1.min.js\" type=\"text/javascript\"></script>\n");
+      out.write("<script src=\"include/JavaScript/jquery-ui.1.12.2.js\" type=\"text/javascript\"></script>\n");
+      out.write("<link href=\"include/css/form.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
+      out.write("\n");
+      out.write("<!--<script src=\"include/JavaScript/jquery-1.11.1.min.js\" type=\"text/javascript\"></script>-->\n");
+      out.write("<script>\n");
+      out.write("    $(document).ready(function () {\n");
+      out.write("        if ($(\".leftmenu ul.nav-left > li:last-child ul\").hasClass(\"nav-lv2\")) {\n");
+      out.write("            $(\".leftmenu ul.nav-left li:last-child a span\").each(function (index) {\n");
+      out.write("                $(this).attr(\"style\", \"border-bottom: 1px dotted #73a0bc !important;\");\n");
+      out.write("            });\n");
+      out.write("        }\n");
+      out.write("    });\n");
+      out.write("    $(function () {\n");
+      out.write("        $(\"#datepicker\").datepicker();\n");
+      out.write("    });\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("</script>\n");
+
+    String error = "";
+    if (request.getAttribute("Loi") != null) {
+        error = (String) request.getAttribute("Loi");
+    }
+
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<head>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<!DOCTYPE html>\n");
+      out.write("\n");
+
+    String title = "Manager Dispatch";
+    //if(request.getAttribute("title")!=null)
+    //{
+    //    title = (String)request.getAttribute("title");
+    //}
+
+      out.write("\n");
+      out.write("\n");
+      out.write("<head>\n");
+      out.write("    <meta charset=\"utf-8\">\n");
+      out.write("    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n");
+      out.write("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n");
+      out.write("    <title>");
+      out.print( title);
+      out.write("</title>\n");
+      out.write("    <link href=\"include/css/bootstrap.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
+      out.write("    <link href=\"include/css/style.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
+      out.write("    <link rel=\"stylesheet\" href=\"public_main/fonts/font-awesome-4.3.0/css/font-awesome.min.css\">\n");
+      out.write("    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>\n");
+      out.write("    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>\n");
+      out.write("\n");
+      out.write("    <link rel=\"stylesheet\" href=\"//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css\">\n");
+      out.write("    <link rel=\"stylesheet\" href=\"//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css\">\n");
+      out.write("    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css\">\n");
+      out.write("    <link href=\"include/css/bootstrap.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
+      out.write("    <script src=\"include/JavaScript/jquery.min.js\" type=\"text/javascript\"></script>\n");
+      out.write("\n");
+      out.write("</head>\n");
+
+
+    Nguoidung nguoidung = null;
+    String tentochuc = "";
+    String tenquyennguoidung = "";
+    Nguoidungquerry querry = new Nguoidungquerry();
+
+    if (session.getAttribute("nguoidung") != null) {
+        nguoidung = (Nguoidung) session.getAttribute("nguoidung");
+
+        if (nguoidung.getQuyenhanh() != 1) {
+            tentochuc = "Organize: " + querry.Laytencongtynguoidangky(nguoidung.getIdcanhan());
+
+        }
+        tenquyennguoidung = querry.Laytenphanquyennguoidung(nguoidung.getQuyenhanh()) + ": " + nguoidung.getHoten();
+    }
+
+      out.write("\n");
+      out.write("\n");
+      out.write("<div class=\"container\">\n");
+      out.write("\n");
+      out.write("    <div class=\"head-banner\">\n");
+      out.write("        <div class=\"banner-top\">\n");
+      out.write("            <div class=\"box-bannertop\">\n");
+      out.write("                <div class=\"logo\">\n");
+      out.write("                    <img src=\"images/Logo.png\" alt=\"\"/>\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"right-banner\">\n");
+      out.write("                    <div class=\"top-menu\">\n");
+      out.write("                        <ul>\n");
+      out.write("                            <li>\n");
+      out.write("                                <a>\n");
+      out.write("                                    Map of the port\n");
+      out.write("                                </a>\n");
+      out.write("                            </li>\n");
+      out.write("                            <li>\n");
+      out.write("                                <a href=\"Congtaclienhe.jsp\">\n");
+      out.write("                                    Contact\n");
+      out.write("                                </a>\n");
+      out.write("                            </li>\n");
+      out.write("<!--                            <li>\n");
+      out.write("                                <a href=\"Khungdangky\">\n");
+      out.write("                                    Register\n");
+      out.write("                                </a>\n");
+      out.write("                            </li>-->\n");
+      out.write("                            ");
+if (nguoidung == null) {
+      out.write("\n");
+      out.write("                            <li>\n");
+      out.write("                                <a href=\"Login.jsp\">\n");
+      out.write("\n");
+      out.write("                                    Login\n");
+      out.write("                                </a>\n");
+      out.write("                            </li>\n");
+      out.write("                            ");
+}
+      out.write("\n");
+      out.write("                            <li>\n");
+      out.write("                                <a href=\"Khungdangxuat\">\n");
+      out.write("                                    Logout\n");
+      out.write("                                </a>\n");
+      out.write("                            </li>\n");
+      out.write("\n");
+      out.write("                        </ul>\n");
+      out.write("                    </div>\n");
+      out.write("                    <div class=\"search-c\" style=\"text-align: right !important\">\n");
+      out.write("                        <div><strong style=\"color: #F15A22\">");
+      out.print(tenquyennguoidung);
+      out.write("</strong></div>\n");
+      out.write("                        <div><strong style=\"color: #F15A22\">");
+      out.print(tentochuc);
+      out.write("</strong></div>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
+      out.write("\n");
+      out.write("            </div>\n");
+      out.write("        </div>\n");
+      out.write("    </div>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("</div>\n");
+      out.write('\n');
+      out.write("<!--<link href=\"include/css/bootstrap.css\" rel=\"stylesheet\" type=\"text/css\"/>-->\n");
+      out.write("<!--<link href=\"include/css/menu.css\" rel=\"stylesheet\" type=\"text/css\"/>-->\n");
+      out.write("<!--<link href=\"include/css/bootstrap.min.css\" rel=\"stylesheet\" type=\"text/css\"/>-->\n");
+      out.write("<!--<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>-->\n");
+      out.write("\n");
+      out.write("<link href=\"include/css/style.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
+      out.write("\n");
+      out.write("<style>\n");
+      out.write("    .ul1{\n");
+      out.write("        height: 50px;\n");
+      out.write("        list-style-type: none;\n");
+      out.write("        padding: 0;\n");
+      out.write("        margin: 0;\n");
+      out.write("        background-color: #0071a6;\n");
+      out.write("        overflow: hidden;\n");
+      out.write("        text-align: center;\n");
+      out.write("    }\n");
+      out.write("    .ul1 li{\n");
+      out.write("        display: inline;\n");
+      out.write("        float:left;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    .ul1  li a{\n");
+      out.write("        display: block;\n");
+      out.write("        width:190px;\n");
+      out.write("        padding: 14px 25px;\n");
+      out.write("        background-color: #0071a6;\n");
+      out.write("        color:white;\n");
+      out.write("        text-decoration: none;\n");
+      out.write("        text-align: center;\n");
+      out.write("    }\n");
+      out.write("</style>\n");
+      out.write("<script>\n");
+      out.write("    function Dieuhuong(bien) {\n");
+      out.write("\n");
+      out.write("        secssionvalue = \"");
+      out.print(session.getAttribute("nguoidung"));
+      out.write("\";\n");
+      out.write("        if (secssionvalue == \"null\") {\n");
+      out.write("            window.location = 'Khungdangnhap';\n");
+      out.write("        } else\n");
+      out.write("        {\n");
+      out.write("            if (bien == 1) {\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("                window.location = 'ServerletThemnhanvien';\n");
+      out.write("            }\n");
+      out.write("            if (bien == 2) {\n");
+      out.write("                window.location = 'Danhsachcongvanden';\n");
+      out.write("            }\n");
+      out.write("            if (bien == 3) {\n");
+      out.write("                window.location = 'Capnhatthongtinnguoidung';\n");
+      out.write("            }\n");
+      out.write("            if (bien == 4) {\n");
+      out.write("\n");
+      out.write("                alert('LEADER CAN BE ACCESS!');\n");
+      out.write("                window.location = 'Trangchu.jsp';\n");
+      out.write("            }\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("        }\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("</script>\n");
+      out.write("<div class=\"container\" style=\"margin-bottom: 20px\">\n");
+      out.write("    <div class=\"full-content\">\n");
+      out.write("        <div id=\"header\"  >\n");
+      out.write("\n");
+      out.write("            <nav style=\"background-color:#0071a6;\">\n");
+      out.write("                <ul class=\"ul1\">\n");
+      out.write("                    <li ><a href=\"Trangchu.jsp\" >Home</a></li>\n");
+      out.write("                   \n");
+      out.write("                    <li><a  href=\"#\" onclick=\"Dieuhuong(1);\" >Add personal</a></li>\n");
+      out.write("                   \n");
+      out.write("\n");
+      out.write("                    <li><a href=\"#\" onclick=\"Dieuhuong(2);\"  >Dispatch</a></li>\n");
+      out.write("                    <li><a href=\"Congtaclienhe.jsp\" >Contact</a></li>\n");
+      out.write("                    <li><a   href=\"#\"  onclick=\"Dieuhuong(3)\">Update Information</a></li>\n");
+      out.write("\n");
+      out.write("                </ul>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("            </nav>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("        </div>\n");
+      out.write("    </div>\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("    \n");
+      out.write("<div class=\"container\" >\n");
+      out.write("    <div class=\"fullcontent\">\n");
+      out.write("        <div class=\"bottom-content\">\n");
+      out.write("            <div class=\"left250 fix-color-left\">\n");
+      out.write("\n");
+      out.write("            </div>\n");
+      out.write("            <div class=\"right730\">\n");
+      out.write("                <form style=\"margin: 100px 0px\" action=\"Nguoidung\" method=\"post\">\n");
+      out.write("                    <div class=\"search\" style=\"width: 460px\">\n");
+      out.write("                        <h4 style=\"color: #fff; margin-left: 20px;height: 2%; text-align: center\">Login</h4>\n");
+      out.write("                        <br>\n");
+      out.write("\n");
+      out.write("                        <div style=\"background: #fff;color: #888;font-size: 12px; \" class=\"container-fluid\" style=\"display: inline-block\">\n");
+      out.write("                            <input name=\"command\" value=\"Login\" type=\"hidden\">\n");
+      out.write("                            <label class=\"col-lg-3\">Your Mail(*)</label>\n");
+      out.write("                            <input type=\"text\" name=\"mail\"  style=\"margin-top: 7px\"><br>\n");
+      out.write("\n");
+      out.write("                            <br>\n");
+      out.write("\n");
+      out.write("                            <label class=\"col-lg-3\">Password(*)</label>\n");
+      out.write("                            <input type=\"password\" name=\"password\" option=\"password\" placeholder=\"Password\" style=\"margin-top: 7px\" >\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("                            <br>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("                            <button type=\"submit\" class=\"col-sm-offset-3 btn btn-primary\" value=\"Submit\" style=\"margin-top: 10px ;margin-bottom: 10px; margin-left: 180px\" >Login</button>\n");
+      out.write("                            <h5 style=\"color: #E42017; margin-left: 25%\" >");
+      out.print(error);
+      out.write("</h5>\n");
+      out.write("                        </div>\n");
+      out.write("                    </div>\n");
+      out.write("                </form>\n");
+      out.write("\n");
+      out.write("            </div>\n");
+      out.write("        </div>\n");
+      out.write("\n");
+      out.write("    </div>\n");
+      out.write("</div>\n");
+      out.write("<link href=\"include/css/bootstrap.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
+      out.write("<link href=\"include/css/footer.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
+      out.write("<link href=\"include/css/style.css\" rel=\"stylesheet\" type=\"text/css\"/>\n");
+      out.write("<div class=\"container\">\n");
+      out.write("    <div class=\"full-content\">\n");
+      out.write("        <footer style=\"height: 220px\"> \n");
+      out.write("    \n");
+      out.write("    <div class=\"container-fluid \">\n");
+      out.write("\n");
+      out.write("        <div class=\" col-lg-4 idfooter\">\n");
+      out.write("            \n");
+      out.write("            <label  >Address:</label>\n");
+      out.write("            <p >79 Man thien,Hiep Phu, Distric 9, Ho Chi Minh City</p>\n");
+      out.write("            <label >\n");
+      out.write("                Phone:\n");
+      out.write("            </label>\n");
+      out.write("            <p>0906466235</p>\n");
+      out.write("             <label>Email:</label>\n");
+      out.write("            <p>nguyentrungdoan79@gmail.com</p>\n");
+      out.write("\n");
+      out.write("        </div>\n");
+      out.write("\n");
+      out.write("        <div class=\"col-lg-3 col-lg-4\" style=\"margin-top: 25px\">\n");
+      out.write("            <ul >\n");
+      out.write("            <li>Home page</li>\n");
+      out.write("            <li>Contact</li>\n");
+      out.write("            <li>Sign up</li>\n");
+      out.write("            <li>Service Agreement</li>\n");
+      out.write("            <li>Introduce</li>\n");
+      out.write("\n");
+      out.write("        </ul>\n");
+      out.write("            \n");
+      out.write("        </div>\n");
+      out.write("        <div class=\"col-lg-offset-1 col-lg-3\">\n");
+      out.write("            <form action=\"Nguoidung\" method=\"post\">\n");
+      out.write("            <b>Email: </b><input type=\"mail\"  name=\"mail\" id=\"email\" class=\"form-control\"><br>\n");
+      out.write("            <b>Password: </b><input type=\"password\" name=\"password\" class=\"form-control\" id=\"pass\">\n");
+      out.write("        <button type=\"submit\" style=\"margin: 10px 10px\" class=\"btn btn-signup\" onclick=\"signup();\">Sign up</button>\n");
+      out.write("            </form>\n");
+      out.write("        </div>\n");
+      out.write("\n");
+      out.write("        \n");
+      out.write("    </div>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("</footer>\n");
+      out.write("    </div>\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<style>\n");
+      out.write("\n");
+      out.write("    .container{\n");
+      out.write("        margin: 0;\n");
+      out.write("        padding: 0;\n");
+      out.write("        z-index: 1;\n");
+      out.write("        display: inline-block;\n");
+      out.write("        width: 100%;\n");
+      out.write("    }\n");
+      out.write("    .container .fullcontent{\n");
+      out.write("        width: 1000px;\n");
+      out.write("        margin: 0 auto; /*padding: 15px 0;*/\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    .bottom-content {\n");
+      out.write("        float: left;\n");
+      out.write("        width: 100%;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    .bottom-content .left250 {\n");
+      out.write("        width: 250px;\n");
+      out.write("        float: left;\n");
+      out.write("    }\n");
+      out.write("    .bottom-content .right730 {\n");
+      out.write("        width: 730px;\n");
+      out.write("        float: right;\n");
+      out.write("    }\n");
+      out.write("    .fix-color-left .leftmenu .head-box {\n");
+      out.write("        background: #0071A6 !important;\n");
+      out.write("        min-height: 41px !important;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    .right730 .right-home .head-box a {\n");
+      out.write("        background: none !important;\n");
+      out.write("        padding-left: 0 !important;\n");
+      out.write("    }\n");
+      out.write("    .leftmenu ul.nav-left {\n");
+      out.write("        background: #e1edf3;\n");
+      out.write("        padding: 10px;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    .leftmenu ul.nav-left li {\n");
+      out.write("        background: url(images/icon-listnew.png) no-repeat scroll left 14px;\n");
+      out.write("        padding-left: 10px;\n");
+      out.write("        background-position-y: 13px;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    .leftmenu ul.nav-left li a {\n");
+      out.write("        color: #004f80;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    .leftmenu ul.nav-left li a span {\n");
+      out.write("        border-bottom: 1px dotted #73a0bc;\n");
+      out.write("        width: 100%;\n");
+      out.write("        display: block;\n");
+      out.write("        line-height: 35px;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    .leftmenu ul.nav-left li:last-child a span {\n");
+      out.write("        border-bottom: none;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    table {\n");
+      out.write("        width: 100%;\n");
+      out.write("        margin-top: 10px;\n");
+      out.write("        font-size: 14px;\n");
+      out.write("\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    table thead tr th {\n");
+      out.write("        background-color: #0071A6 !important;\n");
+      out.write("        font-weight: bold;\n");
+      out.write("        border-top: solid 1px #004f80;\n");
+      out.write("        border-left: solid 1px #004f80;\n");
+      out.write("        height: 30px;\n");
+      out.write("        color: white;\n");
+      out.write("        text-align: center;\n");
+      out.write("        vertical-align: middle;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    table tr th:last-child {\n");
+      out.write("        border-right: solid 1px #004f80;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    tr:nth-child(even) {\n");
+      out.write("        background-color: #f2f2f2;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    table tr td {\n");
+      out.write("        border-top: 1px solid #004f80;\n");
+      out.write("        border-left: 1px solid #004f80;\n");
+      out.write("        vertical-align: middle;\n");
+      out.write("        padding: 5px;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    table tr td:last-child {\n");
+      out.write("        border-right: 1px solid #004f80;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    table tr:last-child td {\n");
+      out.write("        border-bottom: 1px solid #004f80;\n");
+      out.write("    }\n");
+      out.write("    input{\n");
+      out.write("        margin-left: 0%;\n");
+      out.write("        margin-top:10px ;\n");
+      out.write("        width: 250px;\n");
+      out.write("\n");
+      out.write("    }\n");
+      out.write("    label{\n");
+      out.write("        margin-top: 10px;\n");
+      out.write("    }\n");
+      out.write("    a {\n");
+      out.write("        color: #0071a6;\n");
+      out.write("        text-decoration: none;\n");
+      out.write("    }\n");
+      out.write("</style>\n");
+    } catch (Throwable t) {
+      if (!(t instanceof SkipPageException)){
+        out = _jspx_out;
+        if (out != null && out.getBufferSize() != 0)
+          out.clearBuffer();
+        if (_jspx_page_context != null) _jspx_page_context.handlePageException(t);
+        else throw new ServletException(t);
+      }
+    } finally {
+      _jspxFactory.releasePageContext(_jspx_page_context);
+    }
+  }
+}

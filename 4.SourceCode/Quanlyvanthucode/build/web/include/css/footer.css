@@ -1,0 +1,14 @@
+.idfooter label{
+	
+	vertical-align: inherit;
+	text-align: left;
+	font-weight: bold; 
+}
+.idfooter p{
+	vertical-align: inherit;
+}
+footer {
+      background-color: #0071a6;
+      color: white;
+      padding: 15px;
+    }
