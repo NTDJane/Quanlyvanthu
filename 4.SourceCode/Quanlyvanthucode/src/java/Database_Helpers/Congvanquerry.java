@@ -326,7 +326,7 @@ public class Congvanquerry {
         try {
             //  File filegoc=new File(duongdanfilecu);
             // File filemoi=new File("/home/nguyendoan/NetBeansProjects/ProjectVideo/Quanlyvanthu/web/File/"+Tenfile+".pdf");
-            outputstream = new FileOutputStream(new File("/home/nguyendoan/Baocaothuctap/4.SourceCode/Quanlyvanthu/web/File/" + Tenfile));
+            outputstream = new FileOutputStream(new File("/home/nguyendoan/Baocaothuctap/Quan_Ly_Van_Thu/Quanlyvanthu/4.SourceCode/Quanlyvanthucode/web/File/" + Tenfile));
             // inputstream=new FileInputStream(filegoc);
             // outputstream=new FileOutputStream(filemoi);
 

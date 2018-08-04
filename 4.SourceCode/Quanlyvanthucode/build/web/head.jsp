@@ -59,7 +59,7 @@
                     <div class="top-menu">
                         <ul>
                             <li>
-                                <a>
+                                <a href="Sodotrangweb.jsp">
                                     Map of the port
                                 </a>
                             </li>

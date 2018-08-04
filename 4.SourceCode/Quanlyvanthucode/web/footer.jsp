@@ -7,7 +7,7 @@
     
     <div class="container-fluid ">
 
-        <div class=" col-lg-4 idfooter">
+        <div class=" col-lg-4 idfooter" >
             
             <label  >Address:</label>
             <p >79 Man thien,Hiep Phu, Distric 9, Ho Chi Minh City</p>
@@ -20,7 +20,7 @@
 
         </div>
 
-        <div class="col-lg-3 col-lg-4" style="margin-top: 25px">
+        <div class="col-lg-3 " style="margin-top: 25px">
             <ul >
             <li>Home page</li>
             <li>Contact</li>
@@ -31,7 +31,7 @@
         </ul>
             
         </div>
-        <div class="col-lg-offset-1 col-lg-3">
+        <div class="col-lg-offset-1 col-sm-3">
             <form action="Nguoidung" method="post">
             <b>Email: </b><input type="mail"  name="mail" id="email" class="form-control"><br>
             <b>Password: </b><input type="password" name="password" class="form-control" id="pass">

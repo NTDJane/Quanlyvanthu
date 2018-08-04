@@ -13,6 +13,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link href="include/css/form.css" rel="stylesheet" type="text/css"/>
+<%@include  file="head.jsp" %>
+<%@include  file="Menuchinh.jsp" %>
 <script>
     $(document).ready(function () {
         if ($(".leftmenu ul.nav-left > li:last-child ul").hasClass("nav-lv2")) {
@@ -21,31 +23,27 @@
             });
         }
     });
-    
-    function checkEmail() { 
-    var email = document.getElementById('email'); 
-    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
-    if (!filter.test(email.value)) { 
-             alert('Please enter right email !.\nExample@gmail.com');
-             email.focus; 
-             return false; 
+
+    function checkEmail() {
+        var email = document.getElementById('email');
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if (!filter.test(email.value)) {
+            alert('Please enter right email !.\nExample@gmail.com');
+            email.focus;
+            return false;
+        }
+        return true;
+
     }
-    return true;
-    
-} 
-    
-    
+
+
 </script>
 <%
-    
-    
-    
     ArrayList<Nguoidung> list = (ArrayList) request.getAttribute("Danhsachnhanvien");
 %>
 
 
-<%@include  file="head.jsp" %>
-<%@include  file="Menuchinh.jsp" %>
+
 <%--<%@include  file="menu.jsp"%>--%>
 <div class="container" >
     <div class="fullcontent">
@@ -53,14 +51,15 @@
             <div class="left250 fix-color-left">
                 <%@include file="Menutrai.jsp" %></div>
             <div class="right730">
+                <%if (nguoidung.getQuyenhanh() == 3) {%>
                 <h3 class="col-lg-offset-1" style="color: #316BB5">
                     Add Persional!
                 </h3>
                 <form action="Themnhanvien" method="GET"  >
-                    <label class="col-lg-3">Name Personnel(*)</label>
+                    <label  style="width: 100px">Name Personnel(*)</label>
                     <input type="text" name="tennhanvien"  style="margin-left: 5%"  >
                     <br>
-                    <label class="col-lg-3">Emai(*)</label>
+                    <label style="width: 100px">Emai(*)</label>
                     <input type="text" name="emailnhanvien" id="email"  style="margin-left: 5%"   >
                     <br>
 
@@ -95,7 +94,14 @@
                     </tbody>
 
                 </table>
+                <%} else {%>
 
+                <div>
+                    <img src="images/khongkhathi.png" alt=""/>
+                    <span><strong style="font-size: 20px;color: #f15a22">
+                            You do not have this right!</strong></span>
+                </div>
+                <%}%>
             </div>
         </div>
 

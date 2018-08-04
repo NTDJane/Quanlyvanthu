@@ -46,12 +46,12 @@
 
                         <div style="background: #fff;color: #888;font-size: 12px; " class="container-fluid" style="display: inline-block">
                             <input name="command" value="Login" type="hidden">
-                            <label class="col-lg-3">Your Mail(*)</label>
-                            <input type="text" name="mail"  style="margin-top: 7px"><br>
+                            <label  style="width: 100px">Your Mail(*)</label>
+                            <input type="text" name="mail"  style="margin-top: 7px" placeholder="Your mail"><br>
 
                             <br>
 
-                            <label class="col-lg-3">Password(*)</label>
+                            <label style="width: 100px">Password(*)</label>
                             <input type="password" name="password" option="password" placeholder="Password" style="margin-top: 7px" >
 
 
