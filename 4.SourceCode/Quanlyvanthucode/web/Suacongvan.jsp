@@ -1,6 +1,6 @@
 
+<%@page import="Model.Congvanden"%>
 <%@page import="Model.Coquanbanhanhcongvan"%>
-<%@page import="Model.Nguoidung"%>
 
 <%@page import="java.util.ArrayList"%>
 
@@ -13,9 +13,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link href="include/css/form.css" rel="stylesheet" type="text/css"/>
-<%@include  file="head.jsp" %>
-<%@include  file="Menuchinh.jsp" %>
-<script>
+<script> 
     $(document).ready(function () {
         if ($(".leftmenu ul.nav-left > li:last-child ul").hasClass("nav-lv2")) {
             $(".leftmenu ul.nav-left li:last-child a span").each(function (index) {
@@ -23,92 +21,88 @@
             });
         }
     });
-
-    function checkEmail() {
-        var email = document.getElementById('email');
-        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-        if (!filter.test(email.value)) {
-            alert('Please enter right email !.\nExample@gmail.com');
-            email.focus;
-            return false;
-        }
+    
+    function Kiemtracongvanden(){
         
-
+    var sohieu=document.getElementById("sohieu");
+    var ngaybanhanh=document.getElementById("ngaybanhanh");
+    var nguoiky=document
+    
+    if(ten_san_pham.value == "")
+    {
+        alert("");
+        ten_san_pham.focus();
+        return false;
     }
-
-
+    else if(Number(ten_san_pham.value))
+    {
+        alert("");
+        ten_san_pham.select();
+        return false;
+    }
+    
+    
+    return true;
+        
+        
+        
+    }
 </script>
 <%
-    ArrayList<Nguoidung> list = (ArrayList) request.getAttribute("Danhsachnhanvien");
+    DateTimeFormatter datetimeformatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+    LocalDateTime localdatetime = LocalDateTime.now();
+    Congvanden congvanden = (Congvanden) request.getAttribute("thongtincongvan");
+
 %>
 
-
-
-<%--<%@include  file="menu.jsp"%>--%>
+<%@include  file="/head.jsp" %>
+<%@include  file="/Menuchinh.jsp" %>
 <div class="container" >
     <div class="fullcontent">
         <div class="bottom-content">
             <div class="left250 fix-color-left">
-                <%@include file="Menutrai.jsp" %></div>
+                <%@include file="Menutrai.jsp" %>
+            </div>
             <div class="right730">
-                <%if (nguoidung.getQuyenhanh() == 3) {%>
-                <h3 class="col-lg-offset-1" style="color: #316BB5">
-                    Add Persional!
-                </h3>
-                <form action="Themnhanvien" method="GET"  >
-                    <label  style="width: 100px">Name Personnel(*)</label>
-                    <input type="text" name="tennhanvien"  style="margin-left: 5%"  >
-                    <br>
-                    <label style="width: 100px">Emai(*)</label>
-                    <input type="text" name="emailnhanvien" id="email"  style="margin-left: 5%"   >
-                    <br>
+                <form action="Themvaocosodulieusuacongvan" method="get" enctype="multipart/form-data" >
+                    <div class="search">
+                        <h4 style="color: #fff; margin-left: 20px;height: 2%;text-align: center">UPDATE DISPATCH TO </h4>
+                        <br>
+                        <input type="hidden" value="<%=congvanden.getSothutu() %>" name="idcongvanden">
+                        <div style="background: #fff;color: #000;font-size: 12px" class="container-fluid" style="display: inline-block">
+                            <label class="col-lg-3">Number of symbols</label>
+                            <input class="" type="text" name="sohieu" id="sohieu" style="margin-left: 5%;margin-top:10px "  value="<%=congvanden.getSohieu() %>"><br>
 
-                    <button type="submit" class="col-sm-offset-4 btn btn-info" value="Submit" style="margin-top: 10px ;margin-bottom: 10px" onclick="checkEmail()" >Add Personnel</button>
+                            <br>
 
+                            <label class="col-lg-3">Date public</label>
+                            <input type="date" name="Daypublic" id="ngaybanhanh" style="margin-left: 5%" value="<%=congvanden.getNgaybanhanh() %>">
+                            <br>
+
+                            <label class="col-lg-3">The signer</label>
+                            <input type="text" name="husmansign"  id="nguoiky" style="margin-left: 5%" value="<%=congvanden.getNguoiky() %>" >
+                            <br>
+
+                            <br>
+
+                            <br>
+                            <label class="col-lg-3">SubContent</label>
+                            <textarea name="Subcontent" class="text-info" placeholder="" id="trichdan" value="" style="color: #000"><%=congvanden.getTrichdan().replace("<br>","\n") %></textarea>
+
+                            <br>
+                            <button type="submit" class="col-sm-offset-4 btn btn-primary" value="Submit" style="margin-top: 10px ;margin-bottom: 10px" onclick="Kiemtracongvanden()" >Update</button>
+                        </div>
+                    </div>
                 </form>
 
-                <h4>
-                    Table agency issued:
-                </h4>
-                <table style="margin-bottom: 50px">
-                    <thead>
-                        <tr>
-                            <th>Numbers</th>
-                            <th>Name persional</th>
-                            <th>Email</th>
-                            <th>Address</th>
-                            <th>Phone  number</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% for (Nguoidung nhanvien : list) {%>
-                        <tr>
-                            <td><%=nhanvien.getIdcanhan()%></td>
-                            <td><%=nhanvien.getHoten()%></td>
-                            <td><%=nhanvien.getEmail()%></td> 
-                            <td ><%=nhanvien.getDiachi()%></td>
-                            <td><%=nhanvien.getSodienthoai()%></td>
-
-                        </tr>
-                        <%}%>
-                    </tbody>
-
-                </table>
-                <%} else {%>
-
-                <div>
-                    <img src="images/khongkhathi.png" alt=""/>
-                    <span><strong style="font-size: 20px;color: #f15a22">
-                            You do not have this right!</strong></span>
-                </div>
-                <%}%>
             </div>
         </div>
 
     </div>
 </div>
+<%@include file="/footer.jsp" %>
 
-<%@include file="footer.jsp" %>
+
 <style>
 
     .container{

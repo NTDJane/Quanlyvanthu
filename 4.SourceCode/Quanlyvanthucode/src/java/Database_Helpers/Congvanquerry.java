@@ -318,6 +318,20 @@ public class Congvanquerry {
         prepar.executeUpdate();
 
     }
+    
+    public void Suacongvanden(int idcongvan, String sohieu,String ngaybanhanh,String nguoiky, String trichdan) throws SQLException{
+        String sql="  UPDATE `QuanLyVanThu`.`Congvanden` SET `Sohieu`=? , `Trichdan`=? , `Ngaybanhanh`=?, `Nguoiky`= ?  WHERE `idThuoctinhcongvan`=?;";
+         PreparedStatement prepar = ketnoi.prepareStatement(sql);
+         prepar.setString(1, sohieu);
+         prepar.setString(2, trichdan);
+         prepar.setString(3, ngaybanhanh);
+         prepar.setString(4, nguoiky);
+         prepar.setInt(5, idcongvan);
+         prepar.executeUpdate();
+    
+    }
+    
+    
 
     /*Nho chinh sua lai noi luu file cua cong van*/
     public void Taobancopytufilecu(InputStream inputstreamfile, String Tenfile) {
@@ -486,6 +500,14 @@ public class Congvanquerry {
             list.add(congvan);
         }
         return list;
+    }
+    
+    public void Xoacongvanden(int idcongvan) throws SQLException{
+      String sql = "DELETE FROM `QuanLyVanThu`.`Congvanden` WHERE `idThuoctinhcongvan`=?";
+        PreparedStatement ps = ketnoi.prepareStatement(sql);
+        ps.setInt(1, idcongvan);
+        ps.executeUpdate();
+    
     }
 
     public static void main(String[] args) throws IOException, SQLException {

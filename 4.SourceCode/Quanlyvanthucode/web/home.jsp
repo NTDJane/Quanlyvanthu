@@ -16,6 +16,14 @@
             });
         }
     });
+    function Xoacongvan(idcongvan) {
+
+        if (confirm("Data will be deleted, Unable to restore \n Are you sure?"))
+        {
+            window.location = 'Xoacongvanden?idcongvan=' + idcongvan;
+        }
+
+    }
 </script>
 
 <%
@@ -81,35 +89,45 @@
                             </th>
                             <th>Content</th>
                             <th>Date issued</th>
-                           <th>Dispatch status</th>
+                            <th>Dispatch status</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <%
                             String trichdan = "";
-                            String trangthai="";
+                            String trangthai = "";
                             for (Congvanden congvan : danhsachcongvan) {
                                 if (congvan.getTrichdan().length() > 200) {
 
                                     trichdan = congvan.getTrichdan().substring(0, 200/*(int) congvan.getTrichdan().length() * 1 / 8*/);
                                 } else {
-                                    trichdan=congvan.getTrichdan();
+                                    trichdan = congvan.getTrichdan();
                                 }
-                                
-                                 for(Tinhtrangxuly tinhtrang: danhsachtrangthai){
-                                if(congvan.getTinhtranghieuluc()==tinhtrang.getIdXuly()){
-                                trangthai=tinhtrang.getTentrangthai();
-                                break;
-                                }
+
+                                for (Tinhtrangxuly tinhtrang : danhsachtrangthai) {
+                                    if (congvan.getTinhtranghieuluc() == tinhtrang.getIdXuly()) {
+                                        trangthai = tinhtrang.getTentrangthai();
+                                        break;
+                                    }
                                 }
                         %>
                         <tr style="height: 70px">
                             <td style="width: 75px;text-align: left">
                                 <a href="Khungthongtincua1congvan?idcongvan=<%=congvan.getSothutu()%>&sohieu=<%= congvan.getSohieu()%>">  <%= congvan.getSohieu()%></a>
                             </td>
-                                <td style="height: 70px"> <%=trichdan%></td>
+                            <td style="height: 70px"> <%=trichdan%></td>
                             <td style="width: 100px;text-align: center"><%=congvan.getNgaybanhanh()%></td>
                             <td><%=trangthai%></td>
+                            <% if(nguoidung.getQuyenhanh()==2 ){%>
+                            <td style="width: 40px">
+                                <a onclick="Xoacongvan(<%= congvan.getSothutu() %>)"  > <img src="images/bin-blue-icon.png" alt=""style="margin-bottom: 5px"/></a>
+                                <% if(congvan.getTinhtranghieuluc()==4||congvan.getTinhtranghieuluc()==6){  %>
+                                <a href="Suacongvan?idcongvan=<%= congvan.getSothutu()%>&sohieu=<%= congvan.getSohieu()%>"> <img src="images/bbb.png" alt=""/></a>
+                                 <%}%>
+
+                            </td>
+                            <%}%>
                         </tr>
                         <%}%>
                     </tbody>

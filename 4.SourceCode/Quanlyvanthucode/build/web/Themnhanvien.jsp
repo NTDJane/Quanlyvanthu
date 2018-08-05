@@ -32,7 +32,7 @@
             email.focus;
             return false;
         }
-        return true;
+        
 
     }
 
