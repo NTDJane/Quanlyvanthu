@@ -1,4 +1,5 @@
 
+<%@page import="Model.Phanquyen"%>
 <%@page import="Model.Coquanbanhanhcongvan"%>
 <%@page import="Model.Nguoidung"%>
 
@@ -27,12 +28,20 @@
     function checkEmail() {
         var email = document.getElementById('email');
         var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-        if (!filter.test(email.value)) {
-            alert('Please enter right email !.\nExample@gmail.com');
-            email.focus;
+        var name = document.getElementById('name');
+        if (name.value == "") {
+            alert('Name not null !');
+            name.focus();
             return false;
         }
-        
+        if (!filter.test(email.value)) {
+            alert('Please enter right email !.\nExample@gmail.com');
+            email.focus();
+            return false;
+        }
+        return true;
+
+
 
     }
 
@@ -40,6 +49,9 @@
 </script>
 <%
     ArrayList<Nguoidung> list = (ArrayList) request.getAttribute("Danhsachnhanvien");
+    Nguoidungquerry nguoidungquerry = new Nguoidungquerry();
+    ArrayList<Phanquyen> danhsachphanquyen = nguoidungquerry.Layquyen();
+
 %>
 
 
@@ -51,19 +63,29 @@
             <div class="left250 fix-color-left">
                 <%@include file="Menutrai.jsp" %></div>
             <div class="right730">
-                <%if (nguoidung.getQuyenhanh() == 3) {%>
+                <%if (nguoidung.getQuyenhanh() == 2) {%>
                 <h3 class="col-lg-offset-1" style="color: #316BB5">
                     Add Persional!
                 </h3>
                 <form action="Themnhanvien" method="GET"  >
-                    <label  style="width: 100px">Name Personnel(*)</label>
-                    <input type="text" name="tennhanvien"  style="margin-left: 5%"  >
+                    <label  style="width: 100px">Name Personnal(*)</label>
+                    <input type="text" name="tennhanvien" id="name" style="margin-left: 5%"  >
                     <br>
                     <label style="width: 100px">Emai(*)</label>
                     <input type="text" name="emailnhanvien" id="email"  style="margin-left: 5%"   >
                     <br>
+                    <label class="">Office</label>
+                    <select name="office"  style="margin-left: 15%;margin-top: 10px">
+                        <%for (Phanquyen phanquyen : danhsachphanquyen) {%>
+                        <option value="<%=phanquyen.getIdquyen() %>">
+                            <%=phanquyen.getTenquyen() %>
 
-                    <button type="submit" class="col-sm-offset-4 btn btn-info" value="Submit" style="margin-top: 10px ;margin-bottom: 10px" onclick="checkEmail()" >Add Personnel</button>
+                        </option>
+                        <%}%>
+                    </select>
+                    <br>
+
+                    <button type="submit" class="col-sm-offset-4 btn btn-info"  style="margin-top: 10px ;margin-bottom: 10px" onclick="checkEmail()" >Add Personnel</button>
 
                 </form>
 
@@ -74,7 +96,7 @@
                     <thead>
                         <tr>
                             <th>Numbers</th>
-                            <th>Name persional</th>
+                            <th>Name personal</th>
                             <th>Email</th>
                             <th>Address</th>
                             <th>Phone  number</th>

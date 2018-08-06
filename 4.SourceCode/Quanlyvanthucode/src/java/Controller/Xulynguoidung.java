@@ -166,7 +166,7 @@ public class Xulynguoidung extends HttpServlet {
 
         } else {
             session.setAttribute("nguoidung", nguoidung);
-            url = "/Danhsachcongvanden";
+            url = "/Trangchu.jsp";
         }
         RequestDispatcher dis = request.getRequestDispatcher(url);
 

@@ -23,7 +23,7 @@
             <a href="Danhsachcongvanden"><span><font style="vertical-align: inherit;">Dispatch In</font></span></a>
             <ul style="list-style-type: none">
                 <li><a href="Danhsachcongvanden"><span><font style="vertical-align: inherit;">List Dispatch In<font></span><a></li>
-                            <% if (nguoidung.getQuyenhanh() == 2) {%>
+                            <% if (nguoidung.getQuyenhanh() == 3) {%>
                             <li><a class="active" href="Soanthaocongvanden"><span>Add Dispatch In</span></a></li>
 
                             <%}%>
@@ -34,7 +34,7 @@
                             <%}%>
 
 
-                            <% if (nguoidung.getQuyenhanh() == 3) {%>
+                            <% if (nguoidung.getQuyenhanh() == 2) {%>
 
                             <li><a href="Thongkedanhsachphancongcongvan.jsp"><span>List Process Handing</span></a></li>
                                 <%}%>
@@ -48,7 +48,7 @@
                                 <a href="Danhsachcongvandi"><span><font style="vertical-align: inherit;">Dispatch To</font></span></a>
                                 <ul style="list-style-type: none">
                                     <li><a href="Danhsachcongvandi"><span><font style="vertical-align: inherit;">List Dispatch To<font></span><a></li>
-                                                <% if (nguoidung.getQuyenhanh() == 2) {%>
+                                                <% if (nguoidung.getQuyenhanh() == 3) {%>
                                                 <li><a href="Soancongvandi.jsp"><span>Add Dispatch To</span></a></li>
 
                                                 <%}%>

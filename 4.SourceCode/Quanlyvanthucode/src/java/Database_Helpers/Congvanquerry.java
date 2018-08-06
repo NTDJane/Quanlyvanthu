@@ -118,7 +118,7 @@ public class Congvanquerry {
     }
 
     public ArrayList<Congvanden> Laytatcadanhsachcongvantimkiemcophantrang(String tukhoa, int coquanbanhanh, int Tinhtranghieuluc, String ngaybatdau, String ngayketthuc, int begin, int end) throws SQLException {
-        String sql = "SELECT * FROM QuanLyVanThu.Congvanden where Trichdan like '%" + tukhoa + "%' and Coquansoanthaobanhanh like '%" + coquanbanhanh + "%' or Tinhtranghieuluc like '%" + Tinhtranghieuluc + "%' and Ngaybanhanh between '" + ngaybatdau + "' and '" + ngayketthuc + "'  limit ?,? ";
+        String sql = "SELECT * FROM QuanLyVanThu.Congvanden where Ngaybanhanh between '" + ngaybatdau + "' and '" + ngayketthuc + "' or  Trichdan like '%" + tukhoa + "%' and Coquansoanthaobanhanh like '%" + coquanbanhanh + "%' or Tinhtranghieuluc like '%" + Tinhtranghieuluc + "%' limit ?,? ";
         PreparedStatement ps = ketnoi.prepareStatement(sql);
 
         ps.setInt(1, begin);

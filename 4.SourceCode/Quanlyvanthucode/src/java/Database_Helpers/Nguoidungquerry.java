@@ -7,6 +7,7 @@ package Database_Helpers;
 
 import Model.Congvanden;
 import Model.Nguoidung;
+import Model.Phanquyen;
 import Tool.MD5;
 //import com.mysql.jdbc.PreparedStatement;
 import java.io.IOException;
@@ -169,14 +170,14 @@ public class Nguoidungquerry {
         return false;
     }
 
-    public void Themnhanviencongty(String hoten, String email, int macoquan) throws SQLException {
+    public void Themnhanviencongty(String hoten, String email, int macoquan,int quyen) throws SQLException {
         String sql = "INSERT INTO `QuanLyVanThu`.`Thongtincanhan` (`Hoten`, `Coquancongtac`, `Email`, `Password`, `Phanquyen`) VALUES (?, ?, ?, ?, ?);";
         PreparedStatement prepar = ketnoi.prepareStatement(sql);
         prepar.setString(1, hoten);
         prepar.setInt(2, macoquan);
         prepar.setString(3, email);
         prepar.setString(4, MD5.encryption("123"));
-        prepar.setInt(5, 4);
+        prepar.setInt(5, quyen);
         prepar.executeUpdate();
 
     }
@@ -187,9 +188,9 @@ public class Nguoidungquerry {
         prepar.setString(1, nguoidung.getHoten());
         prepar.setString(2, nguoidung.getDiachi());
         prepar.setString(3, nguoidung.getNgaysinh());
-       // prepar.setInt(4, nguoidung.getGioitinh());
+        // prepar.setInt(4, nguoidung.getGioitinh());
         // prepar.setInt(5, nguoidung.getNghenghiep());
-    //    prepar.setInt(6, nguoidung.getCoquan());
+        //    prepar.setInt(6, nguoidung.getCoquan());
         prepar.setString(4, nguoidung.getEmail());
         prepar.setString(5, nguoidung.getPassword());
         prepar.setInt(6, nguoidung.getSodienthoai());
@@ -238,12 +239,11 @@ public class Nguoidungquerry {
         }
         return null;
     }
-    
-    public ArrayList<Nguoidung> Laydanhsachnhanvien() throws SQLException{
-    String sql="SELECT * FROM QuanLyVanThu.Thongtincanhan where Phanquyen=4;";
-    PreparedStatement preparedstatement = ketnoi.prepareStatement(sql);
-        
-       
+
+    public ArrayList<Nguoidung> Laydanhsachnhanvien() throws SQLException {
+        String sql = "SELECT * FROM QuanLyVanThu.Thongtincanhan where Phanquyen=4;";
+        PreparedStatement preparedstatement = ketnoi.prepareStatement(sql);
+
         this.ketqua = preparedstatement.executeQuery();
 
         ArrayList<Nguoidung> list = new ArrayList<>();
@@ -264,8 +264,26 @@ public class Nguoidungquerry {
 
         }
         return list;
-    
-    
+
+    }
+
+    /*Lay  quyen nhan vien va van thu*/
+    public ArrayList<Phanquyen> Layquyen() throws SQLException {
+        String sql = "SELECT * FROM QuanLyVanThu.Loainguoidung where idLoainguoidung > 2 ;";
+        PreparedStatement preparedstatement = ketnoi.prepareStatement(sql);
+
+        this.ketqua = preparedstatement.executeQuery();
+
+        ArrayList<Phanquyen> list = new ArrayList<>();
+        while (this.ketqua.next()) {
+           Phanquyen phanquyen=new Phanquyen();
+           phanquyen.setIdquyen(this.ketqua.getInt("idLoainguoidung"));
+           phanquyen.setTenquyen(this.ketqua.getString("Tenloai"));
+           list.add(phanquyen);
+                   
+
+        }
+        return list;
     }
 
     public static void main(String[] args) throws IOException, SQLException {
@@ -283,15 +301,15 @@ public class Nguoidungquerry {
 //         nguoidung.setNgaysinh("1996-02-21");
 //         nguoidung.setPassword(MD5.encryption("123"));
 //         nguoidung.setEmail("nhatdang@gmail.com");
-       //  nguoidung.setSodienthoai(09283937);
-       // nguoidung.setSodienthoai(0989876);
+        //  nguoidung.setSodienthoai(09283937);
+        // nguoidung.setSodienthoai(0989876);
 //        nguoidung.setIdcanhan(2);
- //       querry.Capnhatnguoidung(nguoidung);
-        ArrayList<Nguoidung> list = new ArrayList<>();
-        list = querry.Laydanhsachnhanvien();
-        for (Nguoidung nhanvien : list) {
-System.out.println(nhanvien.toString());
+        //       querry.Capnhatnguoidung(nguoidung);
+        ArrayList<Phanquyen> list = new ArrayList<>();
+        list = querry.Layquyen();
+        for (Phanquyen nhanvien : list) {
+            System.out.println(nhanvien.toString());
         }
-   // querry.Themnhanviencongty("HaiHai", "haihai@gmail.com",2);
+        // querry.Themnhanviencongty("HaiHai", "haihai@gmail.com",2);
     }
 }

@@ -25,21 +25,26 @@
         
     var sohieu=document.getElementById("sohieu");
     var ngaybanhanh=document.getElementById("ngaybanhanh");
-    var nguoiky=document
+    var nguoiky=document.getElementById("nguoiky");
     
-    if(ten_san_pham.value == "")
+    if(sohieu.value == "")
     {
-        alert("");
-        ten_san_pham.focus();
+        alert("Number of symbols not null!");
+       sohieu.focus();
         return false;
     }
-    else if(Number(ten_san_pham.value))
+    if(ngaybanhanh.value=="")
     {
-        alert("");
-        ten_san_pham.select();
+        alert("Date not null!");
+        ngaybanhanh.focus();
         return false;
     }
-    
+     if(nguoiky.value=="")
+    {
+        alert("Human sign not null!");
+        nguoiky.focus();
+        return false;
+    }
     
     return true;
         

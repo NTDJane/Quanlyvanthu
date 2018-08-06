@@ -73,8 +73,9 @@ public class Themnhanvien extends HttpServlet {
         ArrayList<Nguoidung> danhsachnhanvien = new ArrayList<>();
         String tennhanvien=request.getParameter("tennhanvien");
         String emailnhanvien=request.getParameter("emailnhanvien");
+        int phanquyen=Integer.parseInt(request.getParameter("office"));
         try {
-            nguoidungquerry.Themnhanviencongty(tennhanvien, emailnhanvien, nguoidung.getCoquan());
+            nguoidungquerry.Themnhanviencongty(tennhanvien, emailnhanvien, nguoidung.getCoquan(),phanquyen);
             danhsachnhanvien = nguoidungquerry.Danhsachnguoidungcuacongty(nguoidung.getCoquan(),nguoidung.getQuyenhanh() );
             request.setAttribute("Danhsachnhanvien", danhsachnhanvien);
         } catch (SQLException ex) {
@@ -104,8 +105,9 @@ public class Themnhanvien extends HttpServlet {
         ArrayList<Nguoidung> danhsachnhanvien = new ArrayList<>();
         String tennhanvien=request.getParameter("tennhanvien");
         String emailnhanvien=request.getParameter("emailnhanvien");
+          int phanquyen=Integer.parseInt(request.getParameter("office"));
         try {
-            nguoidungquerry.Themnhanviencongty(tennhanvien, emailnhanvien, nguoidung.getCoquan());
+            nguoidungquerry.Themnhanviencongty(tennhanvien, emailnhanvien, nguoidung.getCoquan(),phanquyen);
             danhsachnhanvien = nguoidungquerry.Danhsachnguoidungcuacongty(nguoidung.getCoquan(),nguoidung.getQuyenhanh() );
             request.setAttribute("Danhsachnhanvien", danhsachnhanvien);
         } catch (SQLException ex) {

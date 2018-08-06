@@ -33,35 +33,7 @@
             </div>
             <div ></div>
             <div class="right730">
-                <form >
-                    <div class="search">
-                        <h4 style="color: #fff; margin-left: 20px;height: 2%">ADVANCED SEARCH</h4>
-                        <br>
-
-                        <div style="background: #fff;color: #000;font-size: 12px" class="container-fluid" style="display: inline-block">
-                            <label class="">Key word</label>
-                            <input type="text" name="keyword" style="margin-left: 7%;margin-top:10px "><br>
-                            <label class="">Agency issued</label>
-                            <select name="Agency" option="Agency">
-                                <%for (Coquanbanhanhcongvan coquan : list) {%>
-                                <option value="<%=coquan.getIdcoquan()%>">
-                                    <%=coquan.getTencoquan()%>
-
-                                </option>
-                                <%}%>
-                            </select>
-                            <br>
-                            <label class="">Effective status</label>
-                            <section name="Agency" option="Agency">
-                            </section>
-                            <br>
-                            <label class="">Date issued</label>
-                            <input type="text" name="From" placeholder="From day" style="margin-left: 5%" >
-                            <input type="text" name="To" placeholder="To day" class="col-sm-offset-1"><br>
-                            <button type="submit" class="col-sm-offset-4 btn btn-primary" value="Submit" style="margin-top: 10px ;margin-bottom: 10px" >Submit</button>
-                        </div>
-                    </div>
-                </form>
+                <%@include file="Khungtimkiem.jsp" %>
                 <div>
                     <label><strong>List dispatch in:</strong></label>
                 </div>

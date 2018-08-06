@@ -22,6 +22,46 @@
             });
         }
     });
+    
+     function Kiemtracongvandi(){
+        
+    var sohieu=document.getElementById("sohieu");
+    var ngayphathanh=document.getElementById("ngayphathanh");
+    var nguoiky=document.getElementById("nguoiky");
+    var noinhan=document.getElementById("noinhan");
+    
+    if(sohieu.value == "")
+    {
+        alert("Number of symbols not null!");
+       sohieu.focus();
+        return false;
+    }
+    if(ngayphathanh.value=="")
+    {
+        alert("Date not null!");
+        ngayphathanh.focus();
+        return false;
+    }
+     if(nguoiky.value=="")
+    {
+        alert("Human sign not null!");
+        nguoiky.focus();
+        return false;
+    }
+    f(noinhan.value=="")
+    {
+        alert("Place reciper not null!");
+        noinhan.focus();
+        return false;
+    }
+    
+    
+    return true;
+        
+        
+        
+    }
+    
 </script>
 <%@include  file="/head.jsp" %>
 <%
@@ -52,12 +92,12 @@
 
                         <div style="background: #fff;color: #000;font-size: 12px" class="container-fluid" style="display: inline-block">
                             <label class="col-lg-3">Number of symbols</label>
-                            <input class="" type="text" name="sohieu" style="margin-left: 5%;margin-top:10px "><br>
+                            <input class="" type="text" name="sohieu" id="sohieu" style="margin-left: 5%;margin-top:10px "><br>
 
                             <br>
 
                             <label class="col-lg-3">Release date</label>
-                            <input type="date" name="ngayphathanh"  style="margin-left: 5%" >
+                            <input type="date" name="ngayphathanh" id="ngayphathanh"  style="margin-left: 5%" >
                             <br>
 
                             
@@ -66,14 +106,14 @@
                             <br>
                             
                             <label class="col-lg-3">The signer</label>
-                            <input type="text" name="husmansign"  style="margin-left: 5%" >
+                            <input type="text" name="husmansign" id="nguoiky" style="margin-left: 5%" >
                             <br>
 
                             <label class="col-lg-3">Time release</label>
                             <input type="datetime" name="thoigiangoi"  style="margin-left: 5%" value="<%=localdatetime%>" readonly >
                             <br>
                             <label class="col-lg-3">Recipients</label>
-                            <input type="text" name="noinhan"  style="margin-left: 5%" >
+                            <input type="text" name="noinhan"  id="noinhan" style="margin-left: 5%" >
                             <br>
                             
                             <br>
@@ -86,7 +126,7 @@
                             <textarea name="trichdan" class="text-info" placeholder="" ></textarea>
 
                             <br>
-                            <button type="submit" class="col-sm-offset-4 btn btn-primary" value="Submit" style="margin-top: 10px ;margin-bottom: 10px" >Record</button>
+                            <button type="submit" class="col-sm-offset-4 btn btn-primary" value="Submit" style="margin-top: 10px ;margin-bottom: 10px" onclick="Kiemtracongvandi()">Record</button>
                         </div>
                     </div>
                 </form>

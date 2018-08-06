@@ -59,9 +59,15 @@
                     <div class="top-menu">
                         <ul>
                             <li>
+                                <%if(nguoidung!=null){%>
                                 <a href="Sodotrangweb.jsp">
                                     Map of the port
                                 </a>
+                                <%}else{%>
+                                <a >
+                                    Map of the port
+                                </a>
+                                <%}%>
                             </li>
                             <li>
                                 <a href="Congtaclienhe.jsp">
