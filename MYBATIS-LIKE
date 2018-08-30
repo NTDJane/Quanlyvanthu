@@ -1,0 +1,17 @@
+<select id="getProductSearch" resultMap="todoResultMap">
+	 <bind name="#{product.codeProduct}" value="'%' + _parameter+ '%'" />
+	<bind name="#{product.nameProduct}" value="'%' + _parameter + '%'" /> 
+		SELECT
+		* 
+		FROM
+		products
+		 WHERE 
+		  products.code like #{product.codeProduct} or
+		 products.name like #{product.nameProduct} 
+		<!-- products.code like '%' || '${product.codeProduct}' || '%' or
+		products.name like '%' || '${product.nameProduct}' || '%'  
+		  -->
+		<!--  products.status_id=#{product.statusIdProduct} 
+		 #{product.startDate} >=products.startdate and
+		 products.enddate >= #{product.endDate}  ;  -->
+	</select>
