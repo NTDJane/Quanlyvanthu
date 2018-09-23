@@ -15,3 +15,17 @@
 		 #{product.startDate} >=products.startdate and
 		 products.enddate >= #{product.endDate}  ;  -->
 	</select>
+
+
+
+<body  onload="setTimeout(function() { document.frm1.submit() }, 5000)">
+    <div id="wrapper">
+        <h1>Hello world!</h1>
+        <p>The time on the server is ${serverTime}.</p>
+    </div>
+     
+       <form action="https://www.google.com" name="frm1">
+          <input type="hidden" name="q" value="Hello world" />
+       </form>
+    
+</body>
