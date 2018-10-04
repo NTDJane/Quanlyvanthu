@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery Show Hide Elements Using Select Box</title>
+<style type="text/css">
+    .box{
+        color: #fff;
+        padding: 20px;
+        display: none;
+        margin-top: 20px;
+    }
+    
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("select").change(function(){
+        $(this).find("option:selected").each(function(){
+            var optionValue = $(this).attr("value");
+            if(optionValue){
+                $(".test").not("." + optionValue).hide();
+                $("." + optionValue).show();
+            } else{
+                $(".test").hide();
+            }
+        });
+    }).change();
+});
+</script>
+</head>
+<body>
+    <div>
+        <select>
+            <option>Choose Test</option>
+            <option value="tracnghiem">tracnghiem</option>
+            <option value="tuluan">tuluan</option>
+            
+        </select>
+    </div>
+    <div class="tuluan test"></div>
+    <div class="tracnghiem test">
+    <ul>
+    <li><label>Answer  </label><input style="width:100px"></li>
+    <li><label>Answer  </label><input style="width:100px"></li>
+    <li><label>Answer  </label><input style="width:100px"></li>
+    </ul>
+    
+    </div>
+    
+</body>
+</html>
